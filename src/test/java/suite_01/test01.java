@@ -3,6 +3,7 @@ package suite_01;
 //import com.cisu.pageObjects.LogWindow;
 //import com.cisu.pageObjects.SmsPage;
 import driverInstantiation.DriverForSmngShop;
+import driverInstantiation.DriverForSmngShopWork;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,14 +19,14 @@ import java.util.concurrent.TimeUnit;
 
 public class test01 {
 
-    DriverForSmngShop driverForSmngShop;
+    DriverForSmngShopWork driverForSmngShop;
     HomePage homePage;
 //    SettingsPageWlan settingsPageWlan;
 
     @BeforeMethod
     public void beforeMethod() throws MalformedURLException {
 
-        driverForSmngShop = new DriverForSmngShop();
+        driverForSmngShop = new DriverForSmngShopWork();
 //        driverForSmngShop.driver.get("http://192.168.1.1");
     }
 
