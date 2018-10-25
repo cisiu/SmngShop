@@ -1,26 +1,24 @@
 package pageObjects;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.openqa.selenium.WebElement;
 
 
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class AgreementWindow {
+public class AgreementPage {
 
 
     @FindBy(xpath="//*[@id=\"js-webpushModal_content\"]/div/button[2]")
     public WebElement zgoda_pop_up;
 
-    private final static Logger LOGGER = Logger.getLogger(AgreementWindow.class .getName());
+    private final static Logger LOGGER = Logger.getLogger(AgreementPage.class .getName());
 
-    public void agreeementAction(){
+    public void agreementAction(){
         try {
+            TimeUnit.SECONDS.sleep(3);
             zgoda_pop_up.click();
         }
         catch (Exception e){

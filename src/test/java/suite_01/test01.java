@@ -2,12 +2,12 @@ package suite_01;
 //import com.cisu.pageObjects.HomePage;
 //import com.cisu.pageObjects.LogWindow;
 //import com.cisu.pageObjects.SmsPage;
-import driverInstantiation.DriverForSmngShop;
 import driverInstantiation.DriverForSmngShopWork;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageObjects.AgreementPage;
 import pageObjects.HomePage;
 //import pageObjects.HomePage;
 //import pageObjects.settingsPage.SettingsPage;
@@ -21,33 +21,35 @@ public class test01 {
 
     DriverForSmngShopWork driverForSmngShop;
     HomePage homePage;
-//    SettingsPageWlan settingsPageWlan;
+    AgreementPage agreementPage;
 
     @BeforeMethod
     public void beforeMethod() throws MalformedURLException {
 
         driverForSmngShop = new DriverForSmngShopWork();
-//        driverForSmngShop.driver.get("http://192.168.1.1");
     }
 
     @Test
     public void test() throws InterruptedException {
 
-        homePage = PageFactory.initElements(driverForSmngShop.driver, HomePage.class);;
-//        TimeUnit.SECONDS.sleep(10);
+        agreementPage = PageFactory.initElements(driverForSmngShop.driver, AgreementPage.class);
+        System.out.println("agreement instance");
+        agreementPage.agreementAction();
+        System.out.println("klikniete");
+
+        homePage = PageFactory.initElements(driverForSmngShop.driver, HomePage.class);
+        System.out.println("czekamy na zgode");
+
         homePage.menu_smartfony.click();
-//        settingsPageWlan.MacFilterFlag(2);
-//        settingsPageWlan.insertMacadress("24:18:1D:37:A9:A3");
-//        settingsPageWlan.applyChanges();
+        homePage.menu_tablety.click();
+        homePage.menu_telewizory.click();
+        homePage.menu_audio_wideo.click();
+        homePage.menu_agd.click();
+        homePage.menu_sprzet_it.click();
     }
     @AfterMethod
     public void afterMethod() throws InterruptedException {
-//        settingsPageWlan.clickWlanMacFilter();
-//        settingsPageWlan.MacFilterFlag(0);
-//        settingsPageWlan.applyChanges();
-//        settingsPageWlan.insertMacadress("24:18:1D:37:A9:A3");
-//        driverForSmngShop.driver.get("http://192.168.1.4");
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(5);
         driverForSmngShop.driver.quit();
     }
 }
