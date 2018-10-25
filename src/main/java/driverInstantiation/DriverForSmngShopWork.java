@@ -19,7 +19,7 @@ public class DriverForSmngShopWork {
         DesiredCapabilities capability = DesiredCapabilities.chrome();
         capability.setPlatform(Platform.WINDOWS);
 
-        options.addArguments("--user-data-dir=C:\\chrome-dev-profile\\");
+//        options.addArguments("--user-data-dir=C:\\chrome-dev-profile\\");
 //        options.addArguments("user-data-dir=C:\\Users\\k.cisek\\AppData\\Local\\Google\\Chrome\\User Data");
         options.addArguments("disable-popup-blocking");
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);

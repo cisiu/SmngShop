@@ -17,6 +17,8 @@ import pageObjects.SmartfonyPage;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class testSmartfonyTab01 {
 
@@ -24,10 +26,13 @@ public class testSmartfonyTab01 {
     HomePage homePage;
     AgreementPage agreementPage;
 
+    private final static Logger LOGGER = Logger.getLogger(testSmartfonyTab01.class .getName());
+
     @BeforeMethod
     public void beforeMethod() throws MalformedURLException {
 
         driverForSmngShop = new DriverForSmngShopWork();
+        LOGGER.log(Level.INFO, "driver created");
     }
 
     @Test
@@ -41,6 +46,7 @@ public class testSmartfonyTab01 {
         SmartfonyPage smartfonyPage = PageFactory.initElements(driverForSmngShop.driver, SmartfonyPage.class);
         System.out.println("czekamy na zgode");
 
+        smartfonyPage.filterToggle.click();
         smartfonyPage.filterToggle.click();
         smartfonyPage.showMoreResults.click();
         smartfonyPage.Sortuj.click();
