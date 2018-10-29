@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.AgreementPage;
 import pageObjects.HomePage;
+import pageObjects.SmartfonyPage;
 //import pageObjects.HomePage;
 //import pageObjects.settingsPage.SettingsPage;
 //import pageObjects.LogWindow;
@@ -16,17 +17,22 @@ import pageObjects.HomePage;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class test01 {
+public class testSmartfonyTab01 {
 
     DriverForSmngShopWork driverForSmngShop;
     HomePage homePage;
     AgreementPage agreementPage;
 
+    private final static Logger LOGGER = Logger.getLogger(testSmartfonyTab01.class .getName());
+
     @BeforeMethod
     public void beforeMethod() throws MalformedURLException {
 
         driverForSmngShop = new DriverForSmngShopWork();
+        LOGGER.log(Level.INFO, "driver created");
     }
 
     @Test
@@ -37,15 +43,14 @@ public class test01 {
         agreementPage.agreementAction();
         System.out.println("klikniete");
 
-        homePage = PageFactory.initElements(driverForSmngShop.driver, HomePage.class);
+        SmartfonyPage smartfonyPage = PageFactory.initElements(driverForSmngShop.driver, SmartfonyPage.class);
         System.out.println("czekamy na zgode");
 
-        homePage.menu_smartfony.click();
-        homePage.menu_tablety.click();
-        homePage.menu_telewizory.click();
-        homePage.menu_audio_wideo.click();
-        homePage.menu_agd.click();
-        homePage.menu_sprzet_it.click();
+        smartfonyPage.filterToggle.click();
+        smartfonyPage.filterToggle.click();
+        smartfonyPage.showMoreResults.click();
+        smartfonyPage.Sortuj.click();
+        smartfonyPage.wynikNaStronie.click();
     }
     @AfterMethod
     public void afterMethod() throws InterruptedException {

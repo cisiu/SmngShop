@@ -9,21 +9,30 @@ import org.openqa.selenium.support.PageFactory;
 //import org.openqa.selenium.support.How;
 
 public class HomePage {
-    @CacheLookup
-    @FindBy(partialLinkText="SMARTFONY")
+//    @CacheLookup
+//    @FindBy(partialLinkText="SMARTFONY")
+//    /html/body/div[4]/header/div[2]/div/nav/ul/li[1]/a
+
+//    @CacheLookup
+    @FindBy(xpath="/html/body/div[4]/header/div[2]/div/nav/ul/li[1]/a")
     public WebElement menu_smartfony;
-    @CacheLookup
-    @FindBy(partialLinkText="TABLETY")
+//    @CacheLookup
+    @FindBy(linkText = "TABLETY")
     public WebElement menu_tablety;
-    @CacheLookup
-    @FindBy(partialLinkText="AKCESORIA")
+//    @CacheLookup
+    @FindBy(xpath="/html/body/div[4]/header/div[2]/div/nav/ul/li[3]/span")
     public WebElement menu_akcesoria;
-    @CacheLookup
-    @FindBy(partialLinkText="TELEWIZORY")
+//    @CacheLookup
+    @FindBy(linkText="TELEWIZORY")
     public WebElement menu_telewizory;
-    @CacheLookup
-    @FindBy(partialLinkText="AUDIO WIDEO")
+//    @CacheLookup
+    @FindBy(xpath="/html/body/div[4]/header/div[2]/div/nav/ul/li[5]/span")
     public WebElement menu_audio_wideo;
+    @FindBy(xpath="/html/body/div[4]/header/div[2]/div/nav/ul/li[5]/span")
+    public WebElement menu_agd;
+    @FindBy(xpath = "/html/body/div[4]/header/div[2]/div/nav/ul/li[5]/span")
+    public WebElement menu_sprzet_it;
+
 
 //    public HomePage(WebElement menu_statistic) {
 //        instanceCountOfHomePage=+1;
